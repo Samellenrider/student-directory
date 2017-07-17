@@ -19,20 +19,35 @@ students = [
 
 puts # Ups I did it again
 
-puts "Students of Villians Academy"
-puts "_____________"
-# We print them. Iteration helps
-
-students.each do |student|
-
-    puts student
-
+def print_header
+    
+    puts "The students of Villians Academy"
+    puts "_____________"
 end
 
+# We print them. Iteration helps
+
+def print(names)
+    
+    names.each do |name|
+        
+        puts name
+  end
+end
+
+def print_footer(names)
+    
+    
+    puts "Overall, we have #{names.count} great students."
+    
+end
+
+
+
+# We call the methods to print everything to the screen
+print_header
+print(students) # We are passing the students variable to the methods as an argument (names) because the methods don't have acces to local variables defined outside of them
 puts # And again
-
-# We print the total
-
-puts "Overall, we have #{students.count} great students. "
+print_footer(students)
 
 puts # And again
