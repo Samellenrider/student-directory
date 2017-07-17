@@ -1,4 +1,4 @@
-puts
+puts # I like empty linnes in my code. It makes it look more open
 puts "The students of Villians Academy"
 puts "_____________"
 puts "Dr. Hanniobal Lecter"
@@ -12,9 +12,9 @@ puts "Freddy Krueger"
 puts "The Joker"
 puts "Joffrey Baratheon"
 puts "Norman Bates"
-puts
+puts # Ups I did it again
 print "Overall, we have "
 print 11
 puts " great students"
-puts
-puts
+puts # And again
+puts # And again
