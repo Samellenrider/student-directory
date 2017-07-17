@@ -1,6 +1,6 @@
 
 
-puts # I like empty lines in my code. It makes it look more open # we store the cohort month as a symbol because we won't expect to treat is as a string
+puts # I like empty lines in my code. It makes it look more open
 # All of our students in one array
 students = [
 
@@ -9,7 +9,7 @@ students = [
 {name: "Nurse Ratched", cohort: :July},
 {name: "Michael Corleone", cohort: :July},
 {name: "Alex DeLarge", cohort: :July},
-{name: "The Wicked Witch of the West", cohort: :July},
+{name: "The Wicked Witch of the West", cohort: :July},    # we store the cohort month as a symbol because we won't expect to treat is as a string
 {name: "Termiator", cohort: :July},
 {name: "Freddy Krueger", cohort: :July},
 {name: "The Joker", cohort: :July},
