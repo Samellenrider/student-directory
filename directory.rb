@@ -1,4 +1,4 @@
-puts # I like empty linnes in my code. It makes it look more open
+puts # I like empty lines in my code. It makes it look more open
 puts "The students of Villians Academy"
 puts "_____________"
 puts "Dr. Hanniobal Lecter"
