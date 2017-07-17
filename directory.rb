@@ -2,7 +2,7 @@ puts
 puts "The students of Villians Academy"
 puts "_____________"
 puts "Dr. Hanniobal Lecter"
-puts "DArth Vader"
+puts "Darth Vader"
 puts "Nurse Ratched"
 puts "Michael Corleone"
 puts "Alex DeLarge"
