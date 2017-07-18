@@ -14,7 +14,7 @@ def input_students
     name = gets.chomp
     
 # While the name is filled, repeat this code
-    while !name.empty? do
+    while name.start_with?('S') do
         # Add the hash to the array
         students << {name: name, cohort: :July}
         
@@ -41,14 +41,13 @@ end
 def print(students)
     
     students.each_with_index do |student, index|
-        
-        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) "
+    
+         puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) "
         
   end
 end
 
 def print_footer(students)
-    
     
     puts "Overall, we have #{students.count} great students."
     
@@ -67,3 +66,4 @@ puts # And again
    print_footer(students)
 
 puts # And again
+
