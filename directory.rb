@@ -60,8 +60,8 @@ end
 
    print_header
 
-   print(students) # We are passing the students variable to the methods as an argument (names) because the methods don't have acces to local variables defined outside of them
-
+   print(students)
+   
 puts # And again
 
    print_footer(students)
