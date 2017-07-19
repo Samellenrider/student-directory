@@ -10,15 +10,28 @@ def input_students
     
     puts "to finish, just hit return twice"
     
-    students = []  # Create an empty array
     
-# Get the first name
+
     name = gets.chomp
     
-# While the name is filled, repeat this code
+    puts "Please enter the students cohort"
+    
+    cohort = gets.chomp
+    
+    puts "Please enter the students birthday"
+    
+    birth = gets.chomp
+    
+    puts "Please enter the students height in cm"
+    
+    height = gets.chomp
+    
+    
+    students = []
+
     while !name.empty? do
-        # Add the hash to the array
-        students << {name: name, cohort: :July}
+       
+       students << {name: name, cohort: cohort, birth: birth, height: height}
         
         
         puts "Now we have #{students.count} students"
@@ -26,7 +39,23 @@ def input_students
     
     
 # Get another name from the user
+
+    puts "Please enter another name"
+    
         name = gets.chomp
+       
+    puts "Please enter the cohort"
+       
+       cohort = gets.chomp
+      
+    puts "Please enter the brithday"
+      
+        birth = gets.chomp
+        
+    puts "Please enter the heigth"
+        
+        height = gets.chomp
+        
   end
 # Return the array of students
     students
@@ -43,31 +72,28 @@ end
 
 # We print them. Iteration helps
 
+
+
 def print(students)
+
     
     students.each_with_index do |student, index|
         
-        if student[:name].length < 12
-            
-    
-      puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) "
+        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) (#{student[:birth]} birth) (#{student[:height]} height)"
+        
+
         
   end
- end
+ 
 end
 
 def print_footer(students)
     
-    if students == 1
-       
-       puts "overall, we have #{students.count} great student."
-    
-    else
     
     
        puts "Overall, we have #{students.count} great students."
   end
-end
+
 
 # We call the methods to print everything to the screen
 
