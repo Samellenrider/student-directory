@@ -1,6 +1,7 @@
 
 
 def input_students
+  
   puts "Please enter the names of the students"
   
   puts "To finish, just hit return twice"
@@ -20,7 +21,7 @@ cohort = []
 
 # add the student hash to the array
 
-students << {name: name, cohort: cohort}
+students << {name: name}
   
   puts "Now we have #{students.count} students"
   
@@ -45,17 +46,18 @@ end
 
 def print(students)
   
-  students.each do |student|
+  input_students.each do |student|
     
-    puts "#{student[:name]} (#{student[:cohort]})"
+    puts "#{student[:name]}"
     
+  end
   end
   
 def print_footer(students)
   
   print "Overall, we have {students.count} great students"
 
-end
+
 end
 
 students = input_students
