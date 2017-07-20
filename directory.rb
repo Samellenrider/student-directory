@@ -6,19 +6,19 @@ def input_students
     
     puts "to finish, just hit return twice".center(50)
     
-    name = gets.chomp
+    name = gets.strip
     
     puts "Please enter the students cohort".center(50)
     
-    cohort = gets.chomp
+    cohort = gets.strip
     
     puts "Please enter the students birthday".center(50)
     
-    birth = gets.chomp
+    birth = gets.strip
     
     puts "Please enter the students height in cm".center(50)
     
-    height = gets.chomp
+    height = gets.strip
     
     
     students = []
@@ -34,19 +34,19 @@ while !name.empty? do
 
     puts "Please enter another name".center(50)
     
-        name = gets.chomp
+        name = gets.strip
        
     puts "Please enter the cohort".center(50)
        
-      cohort = gets.chomp
+      cohort = gets.strip
       
     puts "Please enter the brithday".center(50)
       
-       birth = gets.chomp
+       birth = gets.strip
         
     puts "Please enter the heigth".center(50)
         
-      height = gets.chomp
+      height = gets.strip
         
   end
 
