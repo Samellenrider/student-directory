@@ -8,6 +8,13 @@ def input_students
     
     name = gets.strip
     
+    if name == ""
+        
+        puts exit
+    
+    else
+    
+    
     puts "Please enter the students cohort".center(50)
     
     cohort = gets.strip
@@ -20,16 +27,23 @@ def input_students
     
     height = gets.strip
     
+
     
     students = []
 
 while !name.empty? do
        
        students << {name: name, cohort: cohort, birth: birth, height: height}
+    
+    if students.count == 1
         
+    puts "Now we have #{students.count} student".center(50)
+    
+    else
         
     puts "Now we have #{students.count} students".center(50)
-    
+
+end
     # We need the users infformation about the other students
 
     puts "Please enter another name".center(50)
@@ -53,7 +67,7 @@ while !name.empty? do
     students
 
 end
-    
+end
 
 puts # Ups I did it again
 
@@ -73,13 +87,14 @@ def print(students)
     
     students.each_with_index do |student, index|
         
-        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]}) (#{student[:birth]} birth) (#{student[:height]} height)".center(50)
+        
+        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) (#{student[:birth]} birth) (#{student[:height]} height)".center(50)
         
 
         
   end
- 
-end
+ end
+
 
 def print_footer(students)
     
