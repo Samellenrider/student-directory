@@ -1,17 +1,11 @@
 puts # I like empty lines in my code. It makes it look more open
 
-
-
-
-
 def input_students
     
     puts "Please enter the name of the students".center(50)
     
     puts "to finish, just hit return twice".center(50)
     
-    
-
     name = gets.chomp
     
     puts "Please enter the students cohort".center(50)
@@ -29,16 +23,14 @@ def input_students
     
     students = []
 
-    while !name.empty? do
+while !name.empty? do
        
        students << {name: name, cohort: cohort, birth: birth, height: height}
         
         
-        puts "Now we have #{students.count} students".center(50)
+    puts "Now we have #{students.count} students".center(50)
     
-    
-    
-# Get another name from the user
+    # We need the users infformation about the other students
 
     puts "Please enter another name".center(50)
     
@@ -46,19 +38,20 @@ def input_students
        
     puts "Please enter the cohort".center(50)
        
-       cohort = gets.chomp
+      cohort = gets.chomp
       
     puts "Please enter the brithday".center(50)
       
-        birth = gets.chomp
+       birth = gets.chomp
         
     puts "Please enter the heigth".center(50)
         
-        height = gets.chomp
+      height = gets.chomp
         
   end
-# Return the array of students
+
     students
+
 end
     
 
@@ -80,7 +73,7 @@ def print(students)
     
     students.each_with_index do |student, index|
         
-        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) (#{student[:birth]} birth) (#{student[:height]} height)".center(50)
+        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]}) (#{student[:birth]} birth) (#{student[:height]} height)".center(50)
         
 
         
@@ -90,11 +83,15 @@ end
 
 def print_footer(students)
     
+    if students.count == 1
+        
+       puts "Overall, we have #{students.count} great student.".center(50)
     
+    else
     
        puts "Overall, we have #{students.count} great students.".center(50)
   end
-
+end
 
 # We call the methods to print everything to the screen
 
