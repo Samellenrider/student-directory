@@ -1,3 +1,54 @@
+
+
+
+
+def interactive_menu
+    
+    students = []
+
+    loop do
+        
+        # 1. print the menu and ask the user what to do
+        
+        puts "1. Input the students"
+        
+        puts "2. Show the students"
+        
+        puts "9. Exit"
+        # 2. read the input and save it into a variable
+        
+        selection = gets.chomp
+        
+        # 3. do what the user has asked
+        
+    case selection
+            
+        when "1"
+            
+            students = input_students
+            
+        when "2"
+            
+            print_header
+puts
+            print(students)
+puts
+            print_footer(students)
+puts
+
+        when "9"
+            
+            exit
+            
+        else
+        
+           puts "I don't know what you meant, try again"
+    end
+   end
+  end
+
+
+
 puts # I like empty lines in my code. It makes it look more open
 
 def input_students
@@ -27,10 +78,10 @@ def input_students
     
     height = gets.strip
     
+end
 
+      students = []
     
-    students = []
-
 while !name.empty? do
        
        students << {name: name, cohort: cohort, birth: birth, height: height}
@@ -65,8 +116,7 @@ end
   end
 
     students
-
-end
+    
 end
 
 puts # Ups I did it again
@@ -93,8 +143,8 @@ def print(students)
 
         
   end
- end
-
+ 
+students
 
 def print_footer(students)
     
@@ -107,10 +157,13 @@ def print_footer(students)
        puts "Overall, we have #{students.count} great students.".center(50)
   end
 end
+end
 
 # We call the methods to print everything to the screen
 
-   students = input_students
+
+
+ interactive_menu
 
    print_header
 
