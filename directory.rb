@@ -21,21 +21,13 @@ def input_students
     
     cohort = gets.strip
     
-    puts "Please enter the students birthday".center(50)
-    
-    birth = gets.strip
-    
-    puts "Please enter the students height in cm".center(50)
-    
-    height = gets.strip
-    
-end
+   end
 
 
     
 while !name.empty? do
        
-       @students << {name: name, cohort: cohort, birth: birth, height: height}
+       @students << {name: name, cohort: cohort}
     
     if @students.count == 1
         
@@ -56,14 +48,6 @@ end
        
       cohort = gets.strip
       
-    puts "Please enter the brithday".center(50)
-      
-       birth = gets.strip
-        
-    puts "Please enter the heigth".center(50)
-        
-      height = gets.strip
-        
   end
   @students
 end
@@ -81,6 +65,7 @@ end
 def print_menu
     puts "1. Input the students"
     puts "2. Show the students"
+    puts "3. Save the list to students.csv"
     puts "9. Exit"
 end
 
@@ -92,6 +77,8 @@ def process(selection)
         students = input_students
    when "2"
         show_students
+   when "3"
+        save_students
    when "9"
         exit
    else
@@ -112,7 +99,7 @@ def print_student_list
 
     @students.each_with_index do |student, index|
         
-        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort) (#{student[:birth]} birth) (#{student[:height]} height)".center(50)
+        puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort)".center(50)
         
 end
  
@@ -142,7 +129,56 @@ puts
 puts
 end
 
+def save_students
+    
+    file = File.open("students.csv", "w") #open the file for writinng
+    
+    @students.each do |student| #iterate over the array of students
+        student_data = [student[:name], student[:cohort]]
+        csv_line = student_data.join(",")
+        file.puts csv_line
+    end
+    file.close
+end
+    
+
 
  interactive_menu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
