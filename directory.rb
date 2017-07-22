@@ -8,7 +8,7 @@ def input_students
     
     puts "to finish, just hit return twice".center(50)
     
-    name = gets.strip
+    name = STDIN.gets.strip
     
     if name == ""
         
@@ -19,7 +19,7 @@ def input_students
     
     puts "Please enter the students cohort".center(50)
     
-    cohort = gets.strip
+    cohort = STDIN.gets.strip
     
    end
 
@@ -42,11 +42,11 @@ end
 
     puts "Please enter another name".center(50)
     
-        name = gets.strip
+        name = STDIN.gets.strip
        
     puts "Please enter the cohort".center(50)
        
-      cohort = gets.strip
+      cohort = STDIN.gets.strip
       
   end
   @students
@@ -70,7 +70,7 @@ def print_menu
     puts "9. Exit"
 end
 
-selection = gets.chomp
+selection = STDIN.gets.chomp
 
 def process(selection)
     case selection
@@ -144,8 +144,8 @@ def save_students
     file.close
 end
 
-def load_students
-    file = File.open("students.csv", "r")
+def load_students(filename= "students.csv")
+    file = File.open(filename, "r")
     file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
     
@@ -154,6 +154,19 @@ def load_students
     file.close
 end
 
+def try_load_students
+    filename = ARGV.first
+    return if filename.nil?
+    if File.exists?(filename)
+      load_students(filename)
+      puts "Loaded #{@students.count} form #{filename}"
+    else
+      puts "Sorry, #{filename} doesn't exitst."
+      exit
+  end
+end
+
+ try_load_students
 
  interactive_menu
 
