@@ -132,9 +132,9 @@ end
 
 def save_students_to_file
     
-puts "You want to save your list? Please enter a filename."
+puts "You want to save your list? Please enter a filename. Don\'t forget its codicil!"
 
-file = File.open("#{gets.chomp}", "w")
+file = File.open("#{gets.chomp}", "w") do |file|
 
     @students.each do |student|
         student_data = [student[:name], student[:cohort]]
@@ -142,7 +142,7 @@ file = File.open("#{gets.chomp}", "w")
         file.puts csv_line
     end
     puts "Students succesfully saved"
-   file.close
+ end
  end
 
 
@@ -153,14 +153,15 @@ def load_students_from_file
     
     filename = gets.chomp
     
-    file = File.open(filename, "r")
+    file = File.open(filename, "r") do |file|
     file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
     
        recruit_students(name, cohort)
    end
-    file.close
+  
 puts "Students succesfully loaded"
+end
 end
 
 
