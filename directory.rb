@@ -161,7 +161,17 @@ def recruit_students(name, cohort)
 end
 
 def try_load_students
-    filename = ARGV.first
+    
+    if ARGV
+        
+        filename = "students.csv"
+    
+    else
+    
+        filename = ARGV.first
+    
+    end
+    
     return if filename.nil?
     if File.exists?(filename)
       load_students(filename)
@@ -176,19 +186,6 @@ end
  try_load_students
 
  interactive_menu
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
