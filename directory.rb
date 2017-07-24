@@ -79,7 +79,7 @@ def process(selection)
    when "2"
         show_students
    when "3"
-        save_students
+        save_students_to_file
    when "4"
         load_students
    when "9"
@@ -91,20 +91,20 @@ def process(selection)
 end
 puts
 
-def print_header
+
+
+def print_student_list
     
     puts "The students of Villians Academy".center(50)
     puts "_________________________________________".center(50)
     puts
-end
 
-def print_student_list
 
     @students.each_with_index do |student, index|
         
         puts "#{index + 1}#{':'} #{student[:name]} (#{student[:cohort]} cohort)".center(50)
-        
-end
+puts
+        end
  
 @students
 
@@ -112,27 +112,25 @@ def print_footer
     
     if @students.count == 1
         
-       puts "Overall, we have #{@students.count} great student.".center(50)
-    
-    else
-    
-       puts "Overall, we have #{@students.count} great students.".center(50)
+        puts "Overall, we have #{@students.count} great student.".center(50)
+        
+        else
+        
+        puts "Overall, we have #{@students.count} great students.".center(50)
+    end
   end
 end
-end
-
-
 
 def show_students
-  print_header
+
+    print_student_list
 puts
-  print_student_list
-puts
-  print_footer
-puts
+    print_footer
+
+
 end
 
-def save_students
+def save_students_to_file
     
     file = File.open("students.csv", "w") #open the file for writinng
     
