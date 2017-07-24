@@ -65,8 +65,8 @@ end
 def print_menu
     puts "1. Input the students"
     puts "2. Show the students"
-    puts "3. Save the list to students.csv"
-    puts "4. Load the list from students.csv"
+    puts "3. Save a list of students"
+    puts "4. Load a list "
     puts "9. Exit"
 end
 
@@ -132,9 +132,11 @@ end
 
 def save_students_to_file
     
-    file = File.open("students.csv", "w") #open the file for writinng
-    
-    @students.each do |student| #iterate over the array of students
+puts "You want to save your list? Please enter a filename."
+
+file = File.open("#{gets.chomp}", "w")
+
+    @students.each do |student|
         student_data = [student[:name], student[:cohort]]
         csv_line = student_data.join(",")
         file.puts csv_line
@@ -145,7 +147,12 @@ def save_students_to_file
 
 
 
-def load_students_from_file(filename= "students.csv")
+def load_students_from_file
+    
+    puts "Please enter the filename you want to load. Don\'t forget its codicil!"
+    
+    filename = gets.chomp
+    
     file = File.open(filename, "r")
     file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
@@ -159,7 +166,7 @@ end
 
 def recruit_students(name, cohort)
     
-    @students << {name: name, cohort: cohort.to_sym}
+    @students << {name: name, cohort: cohort}
     
 end
 
@@ -177,7 +184,7 @@ def try_load_students
     
     return if filename.nil?
     if File.exists?(filename)
-      load_students_from_file(filename)
+        
       puts "Loaded #{@students.count} from #{filename}"
     else
       puts "Sorry, #{filename} doesn't exitst."
