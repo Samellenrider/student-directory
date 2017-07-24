@@ -81,7 +81,7 @@ def process(selection)
    when "3"
         save_students_to_file
    when "4"
-        load_students
+        load_students_from_file
    when "9"
         exit
    else
@@ -139,18 +139,23 @@ def save_students_to_file
         csv_line = student_data.join(",")
         file.puts csv_line
     end
-    file.close
-end
+    puts "Students succesfully saved"
+   file.close
+ end
 
-def load_students(filename= "students.csv")
+
+
+def load_students_from_file(filename= "students.csv")
     file = File.open(filename, "r")
     file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
     
        recruit_students(name, cohort)
-    end
+   end
     file.close
+puts "Students succesfully loaded"
 end
+
 
 def recruit_students(name, cohort)
     
@@ -172,8 +177,8 @@ def try_load_students
     
     return if filename.nil?
     if File.exists?(filename)
-      load_students(filename)
-      puts "Loaded #{@students.count} form #{filename}"
+      load_students_from_file(filename)
+      puts "Loaded #{@students.count} from #{filename}"
     else
       puts "Sorry, #{filename} doesn't exitst."
       exit
