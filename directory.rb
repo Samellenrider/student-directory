@@ -27,7 +27,7 @@ def input_students
     
 while !name.empty? do
        
-       @students << {name: name, cohort: cohort}
+       recruit_students(name, cohort)
     
     if @students.count == 1
         
@@ -149,9 +149,15 @@ def load_students(filename= "students.csv")
     file.readlines.each do |line|
     name, cohort = line.chomp.split(',')
     
-        @students << {name: name, cohort: cohort.to_sym}
+       recruit_students(name, cohort)
     end
     file.close
+end
+
+def recruit_students(name, cohort)
+    
+    @students << {name: name, cohort: cohort.to_sym}
+    
 end
 
 def try_load_students
@@ -165,6 +171,7 @@ def try_load_students
       exit
   end
 end
+
 
  try_load_students
 
