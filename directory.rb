@@ -1,5 +1,7 @@
+require 'csv'
 
 @students = []
+
 puts
 
 def input_students
@@ -134,11 +136,11 @@ def save_students_to_file
     
 puts "You want to save your list? Please enter a filename. Don\'t forget its codicil!"
 
-file = File.open("#{gets.chomp}", "w") do |file|
+file = CSV.open("#{gets.chomp}", "w") do |file|
 
     @students.each do |student|
         student_data = [student[:name], student[:cohort]]
-        csv_line = student_data.join(",")
+        csv_line = student_data
         file.puts csv_line
     end
     puts "Students succesfully saved"
@@ -153,9 +155,9 @@ def load_students_from_file
     
     filename = gets.chomp
     
-    file = File.open(filename, "r") do |file|
+    file = CSV.open(filename, "r") do |file|
     file.readlines.each do |line|
-    name, cohort = line.chomp.split(',')
+    name, cohort = line
     
        recruit_students(name, cohort)
    end
